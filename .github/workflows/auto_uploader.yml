@@ -57,7 +57,7 @@
         # gh repo sync Chappi74/Fork-Test-RespiCast-SyndromicIndicators -b main
         # git pull
         - run: |
-            git config --global user.email "paolo.milano@gmail.com"
+            git config --global user.email "formazione.croceverdecirie@gmail.com"
             git config --global user.name "Chappi74"
             git remote add upstream https://github.com/Testing-Forecast-Actions/RespiCast-SyndromicIndicators.git
             git fetch --all           
