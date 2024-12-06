@@ -59,7 +59,7 @@
         - run: |
             git config --global user.email "paolo.milano@gmail.com"
             git config --global user.name "Chappi74"
-            git remote add upstream https://github.com/konradjk/exac_browser.git
+            git remote add upstream https://github.com/Testing-Forecast-Actions/RespiCast-SyndromicIndicators.git
             git fetch --all           
             git checkout -b pr-new-branch upstream/main
 
