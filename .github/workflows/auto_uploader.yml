@@ -54,12 +54,14 @@
 
 
         # Sync forked repo main branch, pull and then switch to a new brench
+        # gh repo sync Chappi74/Fork-Test-RespiCast-SyndromicIndicators -b main
+        # git pull
         - run: |
             git config --global user.email "paolo.milano@gmail.com"
             git config --global user.name "Chappi74"
-            gh repo sync Chappi74/Fork-Test-RespiCast-SyndromicIndicators -b main
-            git pull
-            git checkout -b pr-new-branch
+            git remote add upstream https://github.com/konradjk/exac_browser.git
+            git fetch --all           
+            git checkout -b pr-new-branch upstream/main
 
           env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -73,7 +75,6 @@
         - run: |
             git add ./model-output/ISI-TestModel/2024-12-04-ISI-TestModel.csv
             git commit -m "AuthoSubmitPR"
-            git reset .github/workflows/authomatic_uploader.yml
             git push -u origin pr-new-branch
 
 
