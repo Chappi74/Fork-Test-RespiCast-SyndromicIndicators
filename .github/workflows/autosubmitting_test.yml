@@ -52,7 +52,7 @@ jobs:
 
 
       # Set the default remote repository to use when querying the GitHub API for the locally cloned repository.
-      - run: gh repo set-default european-modelling-hubs/RespiCast-SyndromicIndicators
+      - run: gh repo set-default Testing-Forecast-Actions/RespiCast-SyndromicIndicators
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -60,8 +60,8 @@ jobs:
       # so you do not have to sync and the workflow is not part of the PR
       - run: |
           git config --global user.name "Chappi74"
-          git config --global user.email "your_email@ewhatever.com"
-          git remote add upstream https://github.com/european-modelling-hubs/RespiCast-SyndromicIndicators.git
+          git config --global user.email "formazione.croceverdecirie@gmail.com"
+          git remote add upstream https://github.com/Testing-Forecast-Actions/RespiCast-SyndromicIndicators.git
           git fetch --all
           git checkout -b pr-new-branch upstream/main
 
@@ -70,12 +70,12 @@ jobs:
 
       # make a copy of the needed files from data repository
       - name: Copy model-output file
-        run: cp ./data-repo/archive/yyyy-mm-dd-TeamName-ModelName.csv ./model-output/TeamName-ModelName
+        run: cp ./data-repo/temp/2025-06-11-ISI-TESTMODEL.csv ./model-output/ISI-TESTMODEL
 
       # commit changes to the new brach! This step is needed in order
       # to succesfully open the subsequent pull request
       - run: |
-          git add ./model-output/TeamName-ModelName/yyyy-mm-dd-TeamName-ModelName.csv
+          git add ./model-output/ISI-TESTMODEL/2025-06-11-ISI-TESTMODEL.csv
           git commit -m "AutoSubmitPR"
           git push -u origin pr-new-branch
 
@@ -85,6 +85,6 @@ jobs:
       # containing a valid PERSONAL ACCESS TOKEN for YourGitHubUserName.
       # Without this secret the pr create fails with "Resource not accessible by integration" error
       - name: Open the pull requests
-        run: gh pr create --head  YourGitHubUserName:pr-new-branch  --base main --title 'PR Title' --body 'PR Body'
+        run: gh pr create --head  Chappi74:pr-new-branch  --base main --title 'PR Title' --body 'PR Body'
         env:
           GH_TOKEN: ${{ secrets.MY_PAT_SECRET  }}
