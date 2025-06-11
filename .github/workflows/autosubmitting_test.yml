@@ -70,12 +70,12 @@ jobs:
 
       # make a copy of the needed files from data repository
       - name: Copy model-output file
-        run: cp ./data-repo/temp/2025-06-11-ISI-TESTMODEL.csv ./model-output/ISI-TESTMODEL
+        run: cp ./data-repo/temp/2025-06-11-ISI-TestModel.csv ./model-output/ISI-TestModel
 
       # commit changes to the new brach! This step is needed in order
       # to succesfully open the subsequent pull request
       - run: |
-          git add ./model-output/ISI-TESTMODEL/2025-06-11-ISI-TESTMODEL.csv
+          git add ./model-output/ISI-TestModel/2025-06-11-ISI-TestModel.csv
           git commit -m "AutoSubmitPR"
           git push -u origin pr-new-branch
 
