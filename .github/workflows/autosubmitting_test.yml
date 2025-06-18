@@ -95,7 +95,7 @@ jobs:
           wednesday_date=${{ steps.calculate_wednesday.outputs.wednesday_date }}
           git add ./model-output/ISI-TestModel/${wednesday_date}-ISI-TestModel.csv
           git commit -m "AutoSubmitPR"
-          git push -u origin pr-new-branch
+          git push -f -u origin pr-new-branch
 
 
       # Finally, open the pull request from local pr-new-branch to the main branch
