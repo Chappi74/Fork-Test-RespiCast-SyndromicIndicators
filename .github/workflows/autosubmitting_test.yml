@@ -21,9 +21,6 @@ on:
   # Or you can manually trigger the workflow
   workflow_dispatch:
 
-permissions:
-  contents: write
-  workflows: write
 
 jobs:
   create_PR_job:
