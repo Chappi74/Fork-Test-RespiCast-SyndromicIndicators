@@ -50,7 +50,8 @@ jobs:
         with:
           ref: main
           # token: ${{ secrets.RESPICAST_PAT_SECRET }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # token: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.MY_PAT_SECRET  }}
 
       # Checkout the model data repository - main branch -
       # This is the repository where the model output data reside
