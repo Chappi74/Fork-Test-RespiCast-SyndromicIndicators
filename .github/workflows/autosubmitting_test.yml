@@ -113,4 +113,5 @@ jobs:
           wednesday_date=${{ steps.calculate_wednesday.outputs.wednesday_date }}
           gh pr create --head  Chappi74:pr-${wednesday_date}-branch  --base main --title 'PR Title' --body 'PR Body'
         env:
-          GH_TOKEN: ${{ secrets.MY_PAT_SECRET  }}
+          GH_TOKEN: ${{ secrets.RESPICAST_PAT_SECRET }}
+          # GH_TOKEN: ${{ secrets.MY_PAT_SECRET  }}
