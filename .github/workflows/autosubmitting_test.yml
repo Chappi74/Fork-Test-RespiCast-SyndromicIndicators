@@ -84,7 +84,8 @@ jobs:
           git switch -C pr-${wednesday_date}-branch upstream/main
           
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GH_TOKEN: ${{ secrets.RESPICAST_PAT_SECRET  }}
 
       # make a copy of the needed files from data repository
       - name: Copy model-output file
@@ -99,6 +100,9 @@ jobs:
           git add ./model-output/ISI-TestModel/${wednesday_date}-ISI-TestModel.csv
           git commit -m "AutoSubmitPR"
           git push -f -u origin pr-${wednesday_date}-branch
+
+        env:
+            GH_TOKEN: ${{ secrets.RESPICAST_PAT_SECRET  }}
 
 
       # Finally, open the pull request from local pr-${wednesday_date}-branch to the main branch
