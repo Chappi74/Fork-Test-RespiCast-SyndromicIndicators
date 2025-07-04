@@ -49,8 +49,8 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: main
-          token: ${{ secrets.RESPICAST_PAT_SECRET }}
-          # token: ${{ secrets.GITHUB_TOKEN }}
+          # token: ${{ secrets.RESPICAST_PAT_SECRET }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # Checkout the model data repository - main branch -
       # This is the repository where the model output data reside
@@ -82,8 +82,8 @@ jobs:
           git switch -C pr-${wednesday_date}-branch upstream/main
           
         env:
-            # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            GH_TOKEN: ${{ secrets.RESPICAST_PAT_SECRET  }}
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            # GH_TOKEN: ${{ secrets.RESPICAST_PAT_SECRET  }}
 
       # make a copy of the needed files from data repository
       - name: Copy model-output file
@@ -99,8 +99,8 @@ jobs:
           git commit -m "AutoSubmitPR"
           git push -f -u origin pr-${wednesday_date}-branch
 
-        env:
-            GH_TOKEN: ${{ secrets.RESPICAST_PAT_SECRET  }}
+        # env:
+        #     GH_TOKEN: ${{ secrets.RESPICAST_PAT_SECRET  }}
 
 
       # Finally, open the pull request from local pr-${wednesday_date}-branch to the main branch
